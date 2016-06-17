@@ -2184,20 +2184,6 @@
                 }
             },
 
-            fbCommand: {
-                command: 'fb',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        if (typeof basicBot.settings.fbLink === "string")
-                            API.sendChat(subChat(basicBot.chat.facebook, {link: basicBot.settings.fbLink}));
-                    }
-                }
-            },
-
             filterCommand: {
                 command: 'filter',
                 rank: 'bouncer',
@@ -3688,22 +3674,6 @@
                         }
                     }
                 }
-            },
-
-            youtubeCommand: {
-                command: 'youtube',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        if (typeof basicBot.settings.youtubeLink === "string")
-                            API.sendChat(subChat(basicBot.chat.youtube, {name: chat.un, link: basicBot.settings.youtubeLink}));
-                    }
-                }
-            }
-        }
     };
 
     loadChat(basicBot.startup);
